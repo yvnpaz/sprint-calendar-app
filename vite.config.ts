@@ -10,6 +10,21 @@ export default defineConfig({
     react(),
     legacy()
   ],
+  optimizeDeps: {
+    include: [
+      '@fullcalendar/core',
+      '@fullcalendar/react',
+      '@fullcalendar/daygrid',
+      '@fullcalendar/timegrid',
+      '@fullcalendar/list',
+      '@fullcalendar/interaction',
+    ],
+  },
+  server: {
+    warmup: {
+      clientFiles: ['./src/main.tsx', './src/App.tsx', './src/pages/Home.tsx', './src/components/EventCalendar.tsx'],
+    },
+  },
   test: {
     globals: true,
     environment: 'jsdom',
